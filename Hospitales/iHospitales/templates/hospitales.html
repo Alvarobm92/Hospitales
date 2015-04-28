@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ListaHospitales</title>
+</head>
+<body>
+  <h1>Lista de Hospitales</h1>
+  {% if hospitales %}
+  <ul>
+  {% for hospital in hospitales %}
+  <li>
+
+  {{hospital.nombre}} - {{ hospital.ciudad}} - {{ hospital.codigo_postal }}
+  </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No hay hospitales.</p>
+  {% endif %}
+
+
+</body>
+</html>
