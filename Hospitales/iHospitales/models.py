@@ -18,7 +18,7 @@ class Paciente(models.Model):
     paciente_id = models.CharField(max_length=40)
     nombre = models.CharField(max_length=40)
 
-class ingreso (models.Model):
+class Ingreso (models.Model):
     ingreso_id = models.CharField(max_length=40)
     hospital_id = models.ForeignKey(Hospital)
     medico_id = models.ForeignKey(Medico)
