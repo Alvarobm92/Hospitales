@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Lista de medicos</title>
+</head>
+<body>
+ <h1>Lista de Medicos</h1>
+  {% if medicos %}
+  <ul>
+  {% for medico in medicos %}
+  <li>
+
+  {{ medico.id}} : <A HREF="./{{medico.id}}">{{medico.nombre}}</A>  : {{ medico.especialidad}}
+  </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No hay medicos.</p>
+  {% endif %}
+
+</body>
+</html>

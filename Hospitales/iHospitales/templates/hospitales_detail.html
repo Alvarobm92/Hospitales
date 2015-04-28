@@ -15,10 +15,20 @@
 
 {% if medicos %}
   {% for medico in medicos %}
-      {{medico.nombre}}
+      <A HREF="./medicos/{{medico.id}}">{{medico.nombre}}</A> {{medico.especialidad}}
    {% endfor %}
 {% else %}
   <p>No hay hospitales.</p>
+{% endif %}
+
+
+
+{% if ingresos %}
+  {% for ingreso in ingresos %}
+      <A HREF="./ingresos/{{ingreso.id}}">{{ingreso.paciente}}</A>
+   {% endfor %}
+{% else %}
+  <p>No hay ingresos.</p>
 {% endif %}
 
 

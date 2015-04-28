@@ -22,9 +22,10 @@ class Paciente(models.Model):
         return self.nombre
 
 class Ingreso (models.Model):
-    ingreso_id = models.CharField(max_length=40)
+
     hospital = models.ForeignKey(Hospital)
     medico = models.ForeignKey(Medico)
     paciente = models.ForeignKey(Paciente)
+    #info = models.CharField(max_length=288)
     def __unicode__(self):
         return self.id
