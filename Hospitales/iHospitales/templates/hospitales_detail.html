@@ -9,9 +9,18 @@
   {% if hospital %}
   <ul>
       <h2>
-         {{hospital.hospital_id}} : {{hospital.nombre}} : {{ hospital.ciudad}} : {{ hospital.codigo_postal }}
+         {{hospital.id}} : {{hospital.nombre}} : {{ hospital.ciudad}} : {{ hospital.codigo_postal }}
     </h2>
-  </li>
+
+
+{% if medicos %}
+  {% for medico in medicos %}
+      {{medico.nombre}}
+   {% endfor %}
+{% else %}
+  <p>No hay hospitales.</p>
+{% endif %}
+
 
   </ul>
   {% else %}

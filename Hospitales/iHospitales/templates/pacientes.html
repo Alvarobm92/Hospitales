@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ListaPacientes</title>
+</head>
+<body>
+  <h1>Lista de Pacientes</h1>
+  {% if pacientes %}
+  <ul>
+  {% for paciente in pacientes %}
+  <li>
+
+  {{paciente.paciente_id}}
+  </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No hay pacientes.</p>
+  {% endif %}
+
+
+</body>
+</html>

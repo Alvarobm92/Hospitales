@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <h1>Paciente</h1>
+  {% if paciente %}
+  <ul>
+      <h2>
+         {{paciente.paciente_id}} : {{paciente.nombre}}
+    </h2>
+  </li>
+
+  </ul>
+  {% else %}
+  <p>No hay paciente.</p>
+  {% endif %}
+
+</body>
+</html>
