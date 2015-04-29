@@ -9,9 +9,19 @@
   {% if medico %}
   <ul>
       <h2>
-         {{medico.id}} : {{medico.nombre}} : {{ medico.especialidad}}
+         {{medico.codigo_medico}} : {{medico.nombre}} :{{ medico.edad}}:{{ medico.ciudad}}: {{ medico.especialidad}} :{{ medico.departamento}}
     </h2>
        </ul>
+
+ <br>
+ <h3><A HREF="./pacientes">Pacientes</A></h3>
+ {% if lista_pacientes %}
+  {% for paciente in lista_pacientes %}
+      <A HREF="/pacientes/{{paciente.dni}}">{{paciente.nombre}}</A> <br>
+   {% endfor %}
+{% else %}
+  <p>No hay pacientes.</p>
+{% endif %}
   {% else %}
   <p>No existe el medico.</p>
   {% endif %}

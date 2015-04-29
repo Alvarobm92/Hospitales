@@ -11,13 +11,14 @@
   {% for paciente in pacientes %}
   <li>
 
-  {{paciente.paciente_id}}
+  <A HREF="/pacientes/{{paciente.dni}}">{{paciente.dni}}</A> {{paciente.nombre}}
   </li>
   {% endfor %}
   </ul>
   {% else %}
   <p>No hay pacientes.</p>
   {% endif %}
+
 
 
 </body>

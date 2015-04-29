@@ -7,32 +7,47 @@
 <body>
   <h1>Hospital</h1>
   {% if hospital %}
-  <ul>
+
       <h2>
-         {{hospital.id}} : {{hospital.nombre}} : {{ hospital.ciudad}} : {{ hospital.codigo_postal }}
+         {{hospital.codigo_hospital}} : {{hospital.nombre}} : {{ hospital.ciudad}} : {{ hospital.codigo_postal }}:{{ hospital.capacidad}}
     </h2>
 
-
+<h3><A HREF="./medicos/">MEDICOS</A></h3>
 {% if medicos %}
   {% for medico in medicos %}
-      <A HREF="./medicos/{{medico.id}}">{{medico.nombre}}</A> {{medico.especialidad}}
+  <ul>
+     <A HREF="/medicos/{{medico.codigo_medico}}">{{medico.nombre}}</A> {{medico.departamento}}
+  </ul>
    {% endfor %}
 {% else %}
   <p>No hay hospitales.</p>
 {% endif %}
+<br>
+      <h3><A HREF="./pacientes/">Pacientes</A></h3>
 
+{% if pacientes %}
+  {% for paciente in pacientes %}
+      <ul>
+      <A HREF="/pacientes/{{paciente.dni}}">{{paciente.nombre}}</A>
+      </ul>
+   {% endfor %}
+{% else %}
+  <p>No hay ultimos pacientes.</p>
+{% endif %}
 
+            <h3><A HREF="./ingresos/">Ingresos</A></h3>
 
 {% if ingresos %}
   {% for ingreso in ingresos %}
-      <A HREF="./ingresos/{{ingreso.id}}">{{ingreso.paciente}}</A>
+      <ul>
+      <A HREF="/ingresos/{{ingreso.codigo_ingreso}}">{{ingreso.codigo_ingreso}}</A>
+      </ul>
    {% endfor %}
 {% else %}
-  <p>No hay ingresos.</p>
+  <p>No hay ultimos ingresos.</p>
 {% endif %}
 
 
-  </ul>
   {% else %}
   <p>No hay hospitales.</p>
   {% endif %}

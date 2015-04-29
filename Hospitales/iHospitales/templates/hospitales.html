@@ -11,7 +11,7 @@
   {% for hospital in hospitales %}
   <li>
 
-  <A HREF="./{{hospital.id}}">{{hospital.nombre}}</A>  - {{ hospital.ciudad}} - {{ hospital.codigo_postal }}
+  <A HREF="./{{hospital.codigo_hospital}}">{{hospital.nombre}}</A>  - {{ hospital.ciudad}}
   </li>
   {% endfor %}
   </ul>

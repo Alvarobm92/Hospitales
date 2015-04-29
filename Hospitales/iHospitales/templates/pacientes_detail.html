@@ -9,10 +9,30 @@
   {% if paciente %}
   <ul>
       <h2>
-         {{paciente.paciente_id}} : {{paciente.nombre}}
+         {{paciente.dni}} : {{paciente.nombre}}: {{paciente.edad}}: {{paciente.ciudad}}
     </h2>
   </li>
+    <h3>Lista de medicos que han tratado al paciente</h3>
 
+      {% if  medicos %}
+  {% for medico in medicos %}
+      <ul>
+      <A HREF="/medicos/{{medico.codigo_medico}}">{{medico.nombre}}</A>
+      </ul>
+   {% endfor %}
+{% else %}
+  <p>El paciente no ha sido tratado por ningun medico..</p>
+{% endif %}
+      <h3>Lista de hospitales donde ha sido ingresado el paciente</h3>
+      {% if  hospitales %}
+  {% for hospital in hospitales %}
+      <ul>
+      <A HREF="/hospitales/{{hospital.codigo_hospital}}">{{hospital.nombre}}</A>
+      </ul>
+   {% endfor %}
+{% else %}
+  <p>El paciente no ha sido ingresado en ningun hospital.</p>
+{% endif %}
   </ul>
   {% else %}
   <p>No hay paciente.</p>

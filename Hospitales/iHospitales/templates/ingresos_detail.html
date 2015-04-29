@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Ingreso</h1>
+  {% if ingresos %}
+  <ul>
+      <h2>
+          {{ingresos.codigo_ingreso}} : <A href="/pacientes/{{ingresos.paciente.dni}}">{{ingresos.paciente}}</A>: <a HREF="/medicos/{{ingresos.medico.codigo_medico}}"> {{ingresos.medico}}</a>: <A href="/hospitales/{{ingresos.hospital.codigo_hospital}}"> {{ingresos.hospital}}</A> : {{ingresos.sintomas}}
+    </h2>
+  </li>
+
+{% else %}
+  <p>El ingreso no existe.</p>
+{% endif %}
+</body>
+</html>
