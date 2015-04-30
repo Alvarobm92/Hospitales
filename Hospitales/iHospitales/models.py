@@ -29,6 +29,8 @@ class Paciente(models.Model):
     ciudad = models.CharField(max_length=40)
     def __unicode__(self):
         return self.nombre
+    def _class(self):
+        return Paciente
 
 class Ingreso (models.Model):
     codigo_ingreso = models.CharField(max_length=10, primary_key= True )

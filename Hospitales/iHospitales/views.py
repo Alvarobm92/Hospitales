@@ -5,7 +5,7 @@ from models import Hospital, Medico, Paciente, Ingreso
 from django.http import HttpResponse, Http404
 from django.template import Context
 from django.template.loader import get_template
-
+from django.core import serializers
 
 # Create your views here.
 #LISTA HOSPITALES
@@ -190,3 +190,50 @@ def pacientes_detail(request, pk):
 
 
 
+
+
+#Lista de hospitales - JSON
+def hospitalesjson(request):
+    listajson = Hospital.objects.all()
+    json_list = serializers.serialize(u"json", listajson)
+    return HttpResponse(json_list, content_type=u"application/json")
+#Lista de hospitales XML
+def hospitalesxml(request):
+    listaxml = Hospital.objects.all()
+    xml_list = serializers.serialize(u"xml", listaxml)
+    return HttpResponse(xml_list, content_type=u"application/xml")
+
+#Lista de Medicos - JSON
+def medicosjson(request):
+    listajson = Medico.objects.all()
+    json_list = serializers.serialize(u"json", listajson)
+    return HttpResponse(json_list, content_type=u"application/json")
+
+#Lista de medicos XML
+def medicosxml(request):
+    listaxml = Medico.objects.all()
+    xml_list = serializers.serialize(u"xml", listaxml)
+    return HttpResponse(xml_list, content_type=u"application/xml")
+
+
+#Lista de pacientes - JSON
+def pacientesjson(request):
+    listajson = Paciente.objects.all()
+    json_list = serializers.serialize(u"json", listajson)
+    return HttpResponse(json_list, content_type=u"application/json")
+#Lista de pacientes XML
+def pacientesxml(request):
+    listaxml = Paciente.objects.all()
+    xml_list = serializers.serialize(u"xml", listaxml)
+    return HttpResponse(xml_list, content_type=u"application/xml")
+
+#Lista de ingresos - JSON
+def ingresosjson(request):
+    listajson = Ingreso.objects.all()
+    json_list = serializers.serialize(u"json", listajson)
+    return HttpResponse(json_list, content_type=u"application/json")
+#Lista de ingresos XML
+def ingresosxml(request):
+    listaxml = Ingreso.objects.all()
+    xml_list = serializers.serialize(u"xml", listaxml)
+    return HttpResponse(xml_list, content_type=u"application/xml")

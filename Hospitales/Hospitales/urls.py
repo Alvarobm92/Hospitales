@@ -22,6 +22,16 @@ urlpatterns = patterns('',
     url(r'medicos/(?P<pk>\d+)/pacientes/$', 'iHospitales.views.pacientes_medico' , name='pacientes_medico'), #Lista de pacientes de un medico
 
 
+    url(r'^api/hospitales.json$', 'iHospitales.views.hospitalesjson'),
+    url(r'^api/hospitales.xml$', 'iHospitales.views.hospitalesxml'),
+    url(r'^api/medicos.json$', 'iHospitales.views.medicosjson'),
+    url(r'^api/medicos.xml$', 'iHospitales.views.medicosxml'),
+    url(r'^api/pacientes.json$', 'iHospitales.views.pacientesjson'),
+    url(r'^api/pacientes.xml$', 'iHospitales.views.pacientesxml'),
+    url(r'^api/ingresos.json$', 'iHospitales.views.ingresosjson'),
+    url(r'^api/ingresos.xml$', 'iHospitales.views.ingresosxml'),
+
+
     #url(r'^pacientes/$', 'iHospitales.views.pacientes', name='pacientes'),
 
 )
