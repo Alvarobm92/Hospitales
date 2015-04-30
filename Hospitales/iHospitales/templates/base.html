@@ -1,0 +1,15 @@
+<html>
+  <head>
+  <title>{{ titlehead}}</title>
+  </head>
+<body>
+  <h1>{{ pagetitle }}</h1>
+<p>Welcome {{ user.username }}!</p>
+{% else %}
+<p>Welcome anonymous:<a href="/login/">sign in</a>.</p>
+{% endif %}
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
