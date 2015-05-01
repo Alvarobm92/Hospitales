@@ -1,50 +1,119 @@
 {%extends "base.html" %}
 {% block content %}
-  <h1>Hospital</h1>
+
+
   {% if hospital %}
+      <tr>
+          <th><h1>Detalles del Hospital {{ hospital.nombre }}</h1></th>
+      </tr>
 
-      <h2>
-         {{hospital.codigo_hospital}} : {{hospital.nombre}} : {{ hospital.ciudad}} : {{ hospital.codigo_postal }}:{{ hospital.capacidad}}
-    </h2>
 
-<h3><A HREF="./medicos/">MEDICOS</A></h3>
+
+
+      <tr >
+          <td>Codigo</td>
+          <td>{{hospital.codigo_hospital}} </td>
+       </tr>
+
+      <tr>
+          <td>Nombre</td>
+           <td>{{hospital.nombre}}</td>
+      </tr>
+
+       <tr>
+           <td>Ciudad</td>
+           <td>{{ hospital.ciudad}}</td>
+       </tr>
+
+       <tr>
+           <td>Codigo Postal</td>
+           <td>{{ hospital.codigo_postal }}</td>
+        </tr>
+
+        <tr>
+            <td>Capacidad</td>
+            <td>{{ hospital.capacidad}}</td>
+
+      </tr>
+
+
+
+<tr>
+<td>
+    <table width="50%" bgcolor="#e0e0e0">
+
+    <tr><td><h3><A HREF="./medicos/">Lista de MEDICOS</A></h3></td></tr>
+
+
+
 {% if medicos %}
   {% for medico in medicos %}
-  <ul>
+        <tr>
+        <td>
      <A HREF="/medicos/{{medico.codigo_medico}}">{{medico.nombre}}</A> {{medico.departamento}}
-  </ul>
+        </td>
+        </tr>
    {% endfor %}
 {% else %}
-  <p>No hay hospitales.</p>
+            <tr>
+        <td>
+  <p>No hay medicos trabajando en este hospital.</p>
+            </td>
+        </tr>
 {% endif %}
-<br>
-      <h3><A HREF="./pacientes/">Pacientes</A></h3>
+    </td>
+</tr>
 
+</table>
+
+      <tr>
+        <td>
+      <table width="25%" bgcolor="#e0e0e0" align="right">
+      <tr><td>
+          <h3><A HREF="./pacientes/">Pacientes</A></h3>
+        </td></tr>
 {% if pacientes %}
   {% for paciente in pacientes %}
-      <ul>
+      <tr><td>
       <A HREF="/pacientes/{{paciente.dni}}">{{paciente.nombre}}</A>
-      </ul>
+      </td></tr>
    {% endfor %}
 {% else %}
+    <tr><td>
   <p>No hay ultimos pacientes.</p>
+    </td></tr>
 {% endif %}
+
+      </table>
+      </td>
+
+</tr>
+      <tr><td>
+      <br>
+            <table width="25%" bgcolor="#e0e0e0" align="right">
+<tr><td>
 
             <h3><A HREF="./ingresos/">Ingresos</A></h3>
-
+</td></tr>
 {% if ingresos %}
   {% for ingreso in ingresos %}
-      <ul>
+      <tr><td>
       <A HREF="/ingresos/{{ingreso.codigo_ingreso}}">{{ingreso.codigo_ingreso}}</A>
-      </ul>
+      </td></tr>
    {% endfor %}
 {% else %}
+    <tr><td>
   <p>No hay ultimos ingresos.</p>
+    </td></tr>
 {% endif %}
-
-
+</table>
+      </td>
+</tr>
   {% else %}
-  <p>No hay hospitales.</p>
+
+      <tr>
+  <th><p>No hay hospitales.</p></th>
+      </tr>
   {% endif %}
 
 

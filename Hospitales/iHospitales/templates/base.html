@@ -3,15 +3,34 @@
   <title>{{ titlehead}}</title>
   </head>
 <body>
+<table style="width:100%">
   <h1>{{ pagetitle }}</h1>
+      <tr bgcolor="#bbbbbb">
+        <td>
   {% if user.username %}
+
 <p>Welcome {{ user.username }}! <a href="/logout/">logout</a></p>
 
 {% else %}
 <p>Welcome anonymous:<a href="/login/">sign in</a>. </p>
 {% endif %}
+   </td>
+    </tr>
+<hr>
+      <tr>
+        <td bgcolor="#E0E0E0">
+            <h1><a href="/hospitales"> Aplicacion de Hospitales</a></h1>
+
+        </td>
+      </tr>
+</table>
+
+<table width="100%" bgcolor="#f5f5f5" align="center">
+
+
 {% block content %}
 {% endblock %}
 
+</table>
 </body>
 </html>

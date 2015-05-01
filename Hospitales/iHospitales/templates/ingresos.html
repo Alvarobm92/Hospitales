@@ -1,23 +1,32 @@
 {%extends "base.html" %}
 {% block content %}
-    <title>Lista de ingresos</title>
-</head>
-<body>
-<h1>Lista de ingresos</h1>
+    <tr>
+    <th><h1>Lista de ingresos</h1></th>
+    </tr>
+
+    <tr>
+        <th>Codigo Ingreso</th>
+        <th>Paciente</th>
+        <th>Sintomas</th>
+    </tr>
   {% if ingresos %}
-  <ul>
+
   {% for ingreso in ingresos %}
-  <li>
-
-  <A HREF="/ingresos/{{ingreso.codigo_ingreso}}">{{ ingreso.codigo_ingreso}}</A> : <A HREF="/pacientes/{{ingreso.paciente.dni}}">{{ingreso.paciente}}</A>  : {{ ingreso.sintomas}}
-  </li>
+    <tr align="center">
+     <td> <A HREF="/ingresos/{{ingreso.codigo_ingreso}}">{{ ingreso.codigo_ingreso}}</A></td><td> <A HREF="/pacientes/{{ingreso.paciente.dni}}">{{ingreso.paciente}}</A>  </td><td>{{ ingreso.sintomas}}</td>
+     </td>
+    </tr>
   {% endfor %}
-  </ul>
 
-    <a href="/ingresos/put">Nuevo ingreso</a>
+
+
   {% else %}
+            <tr><td>
   <p>No hay ingresos.</p>
+      </td>
+      </tr>
   {% endif %}
 
+</tr>
 
 {% endblock %}

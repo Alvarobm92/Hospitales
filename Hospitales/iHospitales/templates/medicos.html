@@ -1,17 +1,30 @@
 {%extends "base.html" %}
 {% block content %}
- <h1>Lista de Medicos</h1>
+       <tr>
+        <th> <h1>Lista de Medicos</h1></th>
+          </tr>
+    <table  bgcolor="#f5f5f5" align="center">
   {% if medicos %}
-  <ul>
-  {% for medico in medicos %}
-  <li>
 
-  {{ medico.codigo_medico}} : <A HREF="./{{medico.codigo_medico}}">{{medico.nombre}}</A>  : {{ medico.departamento}}
-  </li>
+    <tr >
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Departamento</th>
+    </tr>
+  {% for medico in medicos %}
+
+    <tr>
+        <td> {{ medico.codigo_medico}}</td>
+
+          <td>  <A HREF="./{{medico.codigo_medico}}">{{medico.nombre}}</A> </td>
+     <td>{{ medico.departamento}}</td>
+    </tr>
+
+
   {% endfor %}
-  </ul>
+
   {% else %}
   <p>No hay medicos.</p>
   {% endif %}
-
+</table>
 {% endblock %}

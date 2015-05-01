@@ -2,13 +2,12 @@
 {% block content %}
  <h1>Medico</h1>
   {% if medico %}
-  <ul>
-      <h2>
-         {{medico.codigo_medico}} : {{medico.nombre}} :{{ medico.edad}}:{{ medico.ciudad}}: {{ medico.especialidad}} :{{ medico.departamento}}
-    </h2>
-       </ul>
 
- <br>
+
+         {{medico.codigo_medico}} : {{medico.nombre}} :{{ medico.edad}}:{{ medico.ciudad}}: {{ medico.especialidad}} :{{ medico.departamento}}
+
+
+
  <h3><A HREF="./pacientes">Pacientes</A></h3>
  {% if lista_pacientes %}
   {% for paciente in lista_pacientes %}

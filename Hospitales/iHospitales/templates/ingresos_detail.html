@@ -1,15 +1,41 @@
 {%extends "base.html" %}
+
 {% block content %}
-<h1>Ingreso</h1>
+    <tr>
+        <th><h1>Ingreso Nº {{ingresos.codigo_ingreso}}</h1></th>
+
+    </tr>
+
   {% if ingresos %}
-  <ul>
-      <h2>
-          {{ingresos.codigo_ingreso}} : <A href="/pacientes/{{ingresos.paciente.dni}}">{{ingresos.paciente}}</A>: <a HREF="/medicos/{{ingresos.medico.codigo_medico}}"> {{ingresos.medico}}</a>: <A href="/hospitales/{{ingresos.hospital.codigo_hospital}}"> {{ingresos.hospital}}</A> : {{ingresos.sintomas}}
-    </h2>
-  </li>
+        <table width="40%" align="center" bgcolor="#f5f5f5">
+        <tr >
+        <td>Codigo</td>
+            <td>{{ingresos.codigo_ingreso}}</td>
+
+            </tr>
+        <tr>
+            <td>Nombre</td>
+             <td> <A href="/pacientes/{{ingresos.paciente.dni}}">{{ingresos.paciente}} </A></td>
+        </tr>
+
+      <tr>
+        <td>Medico</td>
+        <td><a HREF="/medicos/{{ingresos.medico.codigo_medico}}"> {{ingresos.medico}}</a></td>
+      </tr>
+
+      <tr>
+      <td>Hospital</td>
+      <td><A href="/hospitales/{{ingresos.hospital.codigo_hospital}}"> {{ingresos.hospital}}</A></td>
+      </tr>
+
+      <tr>
+      <td>Sintomas</td>
+      <td>{{ingresos.sintomas}}</td>
+        </tr>
+</table>
 
 {% else %}
   <p>El ingreso no existe.</p>
 {% endif %}
-
-      {% endblock %}
+</tr>
+{% endblock %}
