@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 
+
 from django.contrib import admin
 admin.autodiscover()
 
@@ -31,7 +32,8 @@ urlpatterns = patterns('',
     url(r'^api/ingresos.json$', 'iHospitales.views.ingresosjson'),
     url(r'^api/ingresos.xml$', 'iHospitales.views.ingresosxml'),
 
+    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'logout', 'iHospitales.views.logout'),
 
-    #url(r'^pacientes/$', 'iHospitales.views.pacientes', name='pacientes'),
-
+    url(r'ingresos/create/$', 'iHospitales.views.create_ingresos'),
 )

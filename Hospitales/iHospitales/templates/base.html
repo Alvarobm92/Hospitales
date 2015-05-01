@@ -4,9 +4,11 @@
   </head>
 <body>
   <h1>{{ pagetitle }}</h1>
-<p>Welcome {{ user.username }}!</p>
+  {% if user.username %}
+<p>Welcome {{ user.username }}! <a href="/logout/">logout</a></p>
+
 {% else %}
-<p>Welcome anonymous:<a href="/login/">sign in</a>.</p>
+<p>Welcome anonymous:<a href="/login/">sign in</a>. </p>
 {% endif %}
 {% block content %}
 {% endblock %}

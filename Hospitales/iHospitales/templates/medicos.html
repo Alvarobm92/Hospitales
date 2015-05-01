@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Lista de medicos</title>
-</head>
-<body>
+{%extends "base.html" %}
+{% block content %}
  <h1>Lista de Medicos</h1>
   {% if medicos %}
   <ul>
   {% for medico in medicos %}
   <li>
 
-  {{ medico.id}} : <A HREF="./{{medico.id}}">{{medico.nombre}}</A>  : {{ medico.departamento}}
+  {{ medico.codigo_medico}} : <A HREF="./{{medico.codigo_medico}}">{{medico.nombre}}</A>  : {{ medico.departamento}}
   </li>
   {% endfor %}
   </ul>
@@ -19,5 +14,4 @@
   <p>No hay medicos.</p>
   {% endif %}
 
-</body>
-</html>
+{% endblock %}

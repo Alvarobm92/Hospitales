@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Lista Hospitales</title>
-</head>
-<body>
+{%extends "base.html" %}
+{% block content %}
   <h1>Lista de Hospitales</h1>
   {% if hospitales %}
   <ul>
@@ -20,5 +15,4 @@
   {% endif %}
 
 
-</body>
-</html>
+{% endblock %}

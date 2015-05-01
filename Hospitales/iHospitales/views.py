@@ -2,18 +2,21 @@ from django.shortcuts import render
 from models import Hospital, Medico, Paciente, Ingreso
 
 
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import Context
 from django.template.loader import get_template
 from django.core import serializers
+from django.contrib import auth
+from django.contrib.auth.models import User
 
 # Create your views here.
 #LISTA HOSPITALES
 def hospitales(request):
+
     lista_hospitales = Hospital.objects.all()
     template = get_template('hospitales.html')
     variables = Context({
-
+        'user': request.user,
         'hospitales':lista_hospitales
 
     })
@@ -49,8 +52,14 @@ def hospitales_detail(request, pk):
         if paciente.paciente not in lista_pacientes:
             lista_pacientes.append(paciente.paciente)
 
+
+    if request.user.is_anonymous():
+        lista_pacientes = []
+        ingresos = []
+
     template = get_template('hospitales_detail.html')
     variables = Context({
+        'user': request.user,
         'hospital':hospital,
         'medicos': medicos,
         'pacientes': lista_pacientes,
@@ -64,7 +73,7 @@ def medicos(request, pk):
     lista_medicos = Medico.objects.filter(hospital = pk)
     template = get_template('medicos.html')
     variables = Context({
-
+        'user': request.user,
         'medicos':lista_medicos
 
     })
@@ -73,6 +82,8 @@ def medicos(request, pk):
 
 #Medico especifico
 def medicos_detail(request, pk):
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
     medico = Medico.objects.get(codigo_medico = pk)
     ingresos = Ingreso.objects.filter(medico = pk)
     lista_pacientes = []
@@ -82,7 +93,7 @@ def medicos_detail(request, pk):
 
     template = get_template('medicos_detail.html')
     variables = Context({
-
+        'user': request.user,
         'medico':medico,
         'lista_pacientes':lista_pacientes
 
@@ -92,10 +103,12 @@ def medicos_detail(request, pk):
 
 #Lista de ingresos de un hospital
 def ingresos_hospital(request, pk):
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
     lista_ingresos = Ingreso.objects.filter(hospital = pk)
     template = get_template('ingresos.html')
     variables = Context({
-
+        'user': request.user,
         'ingresos':lista_ingresos
 
     })
@@ -104,10 +117,12 @@ def ingresos_hospital(request, pk):
 
 #Lista de ingresos de un medico
 def ingresos_medico(request, pk):
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
     lista_ingresos = Ingreso.objects.filter(medico = pk)
     template = get_template('ingresos.html')
     variables = Context({
-
+        'user': request.user,
         'ingresos':lista_ingresos
 
     })
@@ -116,12 +131,14 @@ def ingresos_medico(request, pk):
 
 #Detalles de un ingreso
 def ingresos_detail(request, pk):
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
 
     ingresos = Ingreso.objects.get(codigo_ingreso = pk)
 
     template = get_template('ingresos_detail.html')
     variables = Context({
-
+        'user': request.user,
 
         'ingresos':ingresos
 
@@ -131,6 +148,9 @@ def ingresos_detail(request, pk):
 
 #Lista de pacientes de un hospital
 def pacientes_hospital(request, pk):
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
+
     lista_ingresos = Ingreso.objects.filter(hospital = pk)
     lista_pacientes = []
     for paciente in lista_ingresos:
@@ -139,7 +159,7 @@ def pacientes_hospital(request, pk):
 
     template = get_template('pacientes.html')
     variables = Context({
-
+        'user': request.user,
         'pacientes':lista_pacientes
 
     })
@@ -148,6 +168,8 @@ def pacientes_hospital(request, pk):
 
 #Lista de pacientes de un medico
 def pacientes_medico(request, pk):
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
     ingresos = Ingreso.objects.filter(medico = pk)
     lista_pacientes = []
     for paciente in ingresos:
@@ -155,7 +177,7 @@ def pacientes_medico(request, pk):
             lista_pacientes.append(paciente.paciente)
     template = get_template('pacientes.html')
     variables = Context({
-
+        'user': request.user,
         'pacientes':lista_pacientes
 
     })
@@ -164,7 +186,8 @@ def pacientes_medico(request, pk):
 
 #Detalles de un paciente
 def pacientes_detail(request, pk):
-
+    if request.user.is_anonymous():
+        raise Http404('No tienes permisos')
     paciente = Paciente.objects.get(dni = pk)
     ingresos = Ingreso.objects.filter(paciente = pk )
     lista_medicos = []
@@ -179,7 +202,7 @@ def pacientes_detail(request, pk):
     template = get_template('pacientes_detail.html')
     variables = Context({
 
-
+        'user': request.user,
         'paciente':paciente,
         'medicos': lista_medicos,
         'hospitales': lista_hospitales
@@ -237,3 +260,13 @@ def ingresosxml(request):
     listaxml = Ingreso.objects.all()
     xml_list = serializers.serialize(u"xml", listaxml)
     return HttpResponse(xml_list, content_type=u"application/xml")
+
+
+#LOGOUT
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect("/hospitales")
+
+#Crear ingreso
+
+
