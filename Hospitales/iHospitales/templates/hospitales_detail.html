@@ -4,15 +4,15 @@
 
   {% if hospital %}
       <tr>
-          <th><h1>Detalles del Hospital {{ hospital.nombre }}</h1></th>
+          <th colspan="2"><h1>Detalles del Hospital {{ hospital.nombre }}</h1></th>
       </tr>
 
 
 
 
       <tr >
-          <td>Codigo</td>
-          <td>{{hospital.codigo_hospital}} </td>
+          <td width="25%">Codigo</td>
+          <td width="25%">{{hospital.codigo_hospital}} </td>
        </tr>
 
       <tr>
@@ -67,7 +67,7 @@
 </table>
 
       <tr>
-        <td>
+        <td colspan="3">
       <table width="25%" bgcolor="#e0e0e0" align="right">
       <tr><td>
           <h3><A HREF="./pacientes/">Pacientes</A></h3>
@@ -88,8 +88,8 @@
       </td>
 
 </tr>
-      <tr><td>
-      <br>
+      <tr><td colspan="3">
+
             <table width="25%" bgcolor="#e0e0e0" align="right">
 <tr><td>
 
