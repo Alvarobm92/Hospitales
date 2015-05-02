@@ -1,19 +1,35 @@
 {%extends "base.html" %}
 {% block content %}
-  <h1>Lista de Pacientes</h1>
-  {% if pacientes %}
-  <ul>
-  {% for paciente in pacientes %}
-  <li>
+    <tr>
+    <table  bgcolor="#f5f5f5" align="center">
 
-  <A HREF="/pacientes/{{paciente.dni}}">{{paciente.dni}}</A> {{paciente.nombre}}
-  </li>
+  <th colspan="2"><h1>Lista de Pacientes</h1></th>
+
+    </tr>
+  {% if pacientes %}
+    <tr align="center">
+        <th>DNI</th>
+        <th>Nombre</th>
+    </tr>
+  {% for paciente in pacientes %}
+    <tr align="center">
+        <td><A HREF="/pacientes/{{paciente.dni}}">{{paciente.dni}}</A></td>
+        <td>{{paciente.nombre}}</td>
+
+    </tr>
+
+
+
   {% endfor %}
-  </ul>
+
   {% else %}
-  <p>No hay pacientes.</p>
+      <tr>
+
+
+    <td><p>No hay pacientes.</p></td>
+       </tr>
   {% endif %}
 
-
+</table>
 
 {% endblock %}

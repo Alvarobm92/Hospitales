@@ -1,23 +1,59 @@
 {%extends "base.html" %}
 {% block content %}
- <h1>Medico</h1>
+    <tr>
+    <th><h1>Medico</h1></th>
+    </tr>
   {% if medico %}
+           <table  bgcolor="#f5f5f5" align="center">
+        <tr>
+        <td>Codigo</td>
+        <td>{{medico.codigo_medico}}</td>
+            </tr>
+      <tr>
+        <td>Nombre</td>
+        <td>{{medico.nombre}}</td>
+          </tr>
+      <tr>
+          <td>Edad</td>
+        <td>{{ medico.edad}}</td>
+          </tr>
+      <tr>
+      <td>Ciudad</td>
+        <td>{{ medico.ciudad}}</td>
+          </tr>
+      <tr>
+      <td>Especialidad</td>
+        <td>{{ medico.especialidad}}</td>
+          </tr>
+      <tr>
+      <td>Departamento</td>
+        <td>{{ medico.departamento}}</td>
+        </tr>
 
 
-         {{medico.codigo_medico}} : {{medico.nombre}} :{{ medico.edad}}:{{ medico.ciudad}}: {{ medico.especialidad}} :{{ medico.departamento}}
+<table width="25%" bgcolor="#e0e0e0" align="right">
+      <tr>
+       <th><h3><A HREF="./pacientes">Pacientes</A></h3></th>
+
+      </tr>
 
 
 
- <h3><A HREF="./pacientes">Pacientes</A></h3>
  {% if lista_pacientes %}
   {% for paciente in lista_pacientes %}
-      <A HREF="/pacientes/{{paciente.dni}}">{{paciente.nombre}}</A> <br>
+      <tr>
+      <td><A HREF="/pacientes/{{paciente.dni}}">{{paciente.nombre}}</A></td>
+      </tr>
    {% endfor %}
 {% else %}
+     <tr><td>
   <p>No hay pacientes.</p>
+     </td></tr>
 {% endif %}
   {% else %}
-  <p>No existe el medico.</p>
+      <tr><td>
+    <p>No existe el medico.</p>
+      </td></tr>
   {% endif %}
-
+</table>
 {% endblock %}
