@@ -1,0 +1,39 @@
+{%extends "base.html" %}
+{% block content %}
+
+    <table width="50%" align="center" bgcolor="#f5f5f5">
+
+
+
+    <tr align="center">
+        <td width="30%"><a href="/login" >Ir al login</a></td>
+        <td width="30%"> <a href="/admin" >Ir a la seccion de admins</a></td>
+
+
+    </tr>
+        <tr><td><br></td></tr>
+    <tr>
+        <th>JSON</th>
+        <th>XML</th>
+
+    </tr>
+
+    <tr align="center">
+        <td width="30%"><a href="/api/hospitales.json" >lista Hospitales Json</a></td>
+        <td width="30%"> <a href="/api/hospitales.xml" >lista Hospitales Xml</a></td>
+    </tr>
+
+    <tr align="center">
+        <td width="30%"><a href="/api/medicos.json" >lista Medicos Json</a></td>
+        <td width="30%"> <a href="/api/medicos.xml" >lista medicos Xml</a></td>
+    </tr>
+    <tr align="center">
+        <td width="30%"><a href="/api/pacientes.json" >lista Pacientes Json</a></td>
+        <td width="30%"> <a href="/api/pacientes.xml" >lista Pacientes Xml</a></td>
+    </tr>
+    <tr align="center">
+        <td width="30%"><a href="/api/ingresos.json" >lista ingresos Json</a></td>
+        <td width="30%"> <a href="/api/ingresos.xml" >lista ingresos Xml</a></td>
+    </tr>
+    </table>
+{% endblock %}

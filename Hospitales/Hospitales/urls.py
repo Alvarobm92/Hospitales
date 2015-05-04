@@ -34,6 +34,7 @@ urlpatterns = patterns('',
 
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'logout', 'iHospitales.views.logout'),
+    url(r'^$', 'iHospitales.views.home')
 
 
 )

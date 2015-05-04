@@ -267,6 +267,13 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("/hospitales")
 
-#Crear ingreso
+#HOME
+def home(request):
+    template = get_template('home.html')
+    variables = Context({
+
+    })
+    output = template.render(variables)
+    return HttpResponse(output)
 
 
