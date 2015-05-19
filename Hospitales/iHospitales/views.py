@@ -8,6 +8,12 @@ from django.template.loader import get_template
 from django.core import serializers
 from django.contrib import auth
 from django.contrib.auth.models import User
+from rest_framework import viewsets, generics
+from rest_framework.decorators import api_view
+from rest_framework.reverse import reverse
+from rest_framework.response import Response
+from iHospitales.serializers import HospitalSerializer, MedicoSerializer, PacienteSerializer, IngresoSerializer
+
 
 # Create your views here.
 #LISTA HOSPITALES
@@ -277,3 +283,111 @@ def home(request):
     return HttpResponse(output)
 
 
+
+############Serializers
+@api_view(['GET'])
+def api_root(request, format=None):
+    """
+    The entry endpoint of our API
+    """
+    return Response({
+        'hospitales': reverse('hospital-list', request=request),
+        'medicos': reverse('medico-list', request=request),
+	'pacientes': reverse('paciente-list', request=request),
+	'ingresos': reverse('ingreso-list', request=request),
+    })
+
+
+class HospitalList(generics.ListCreateAPIView):
+    """
+      API endpoint that	represents a list of users
+    """
+    queryset = Hospital.objects.all()
+    model = Hospital
+    serializer_class = HospitalSerializer
+
+
+class HospitalDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+      API endpoint that	represents a single users
+    """
+    model = Hospital
+    serializer_class = HospitalSerializer
+
+
+class MedicoList(generics.ListCreateAPIView):
+    """
+      API endpoint that	represents a list of groups
+    """
+    model = Medico
+    serializer_class = MedicoSerializer
+
+
+class MedicoDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+      API endpoint that	represents a single group
+    """
+    model = Medico
+    serializer_class = MedicoSerializer
+
+class PacienteList(generics.ListCreateAPIView):
+    """
+      API endpoint that	represents a list of users
+    """
+    queryset = Paciente.objects.all()
+    model = Paciente
+    serializer_class = PacienteSerializer
+
+
+class PacienteDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+      API endpoint that	represents a single users
+    """
+    model = Paciente
+    serializer_class = PacienteSerializer
+
+class IngresoList(generics.ListCreateAPIView):
+    """
+      API endpoint that	represents a list of users
+    """
+    queryset = Ingreso.objects.all()
+    model = Ingreso
+    serializer_class = IngresoSerializer
+
+
+class IngresoDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+      API endpoint that	represents a single users
+    """
+    model = Ingreso
+    serializer_class = IngresoSerializer
+
+
+class HospitalViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Hospital.objects.all()
+    serializer_class = HospitalSerializer
+
+
+class MedicoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Medico.objects.all()
+    serializer_class = MedicoSerializer
+
+class PacienteViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Paciente.objects.all()
+    serializer_class = PacienteSerializer
+
+class IngresoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Ingreso.objects.all()
+    serializer_class = IngresoSerializer

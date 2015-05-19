@@ -1,7 +1,21 @@
 from django.conf.urls import patterns, include, url
+from rest_framework.urlpatterns import format_suffix_patterns
+from iHospitales.views import HospitalList, HospitalDetail, MedicoList, MedicoDetail, HospitalViewSet, MedicoViewSet
+from iHospitales import views
+
+from rest_framework import routers
 
 from django.contrib import admin
 admin.autodiscover()
+
+from rest_framework.urlpatterns import format_suffix_patterns
+
+
+router = routers.DefaultRouter()
+router.register(r'hospital', views.HospitalViewSet)
+router.register(r'medico', views.MedicoViewSet)
+router.register(r'paciente', views.PacienteViewSet)
+router.register(r'ingreso', views.IngresoViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -35,6 +49,8 @@ urlpatterns = patterns('',
     url(r'logout', 'iHospitales.views.logout'),
     url(r'^$', 'iHospitales.views.home'),
 
+	url(r'^prueba/', include(router.urls)),
+	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 
 
