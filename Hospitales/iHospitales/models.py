@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -30,6 +31,9 @@ class Paciente(models.Model):
     def __unicode__(self):
         return self.nombre
 
+    def get_absolute_url(self):
+        return reverse('pacientes_detail', kwargs={'pk': self.pk})
+
 
 class Ingreso (models.Model):
     codigo_ingreso = models.CharField(max_length=10, primary_key= True )
@@ -40,3 +44,6 @@ class Ingreso (models.Model):
     #info = models.CharField(max_length=288)
     def __unicode__(self):
         return self.codigo_ingreso
+
+    def get_absolute_url(self):
+        return reverse('ingresos_detail', kwargs={'pk': self.pk})

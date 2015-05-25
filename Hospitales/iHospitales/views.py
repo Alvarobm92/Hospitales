@@ -12,7 +12,9 @@ from rest_framework import viewsets, generics
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
-from iHospitales.serializers import HospitalSerializer, MedicoSerializer, PacienteSerializer, IngresoSerializer
+from serializers import HospitalSerializer, MedicoSerializer, PacienteSerializer, IngresoSerializer
+from forms import IngresoForm, PacienteForm
+from django.views.generic.edit import CreateView
 
 
 # Create your views here.
@@ -391,3 +393,21 @@ class IngresoViewSet(viewsets.ModelViewSet):
     """
     queryset = Ingreso.objects.all()
     serializer_class = IngresoSerializer
+
+class PacienteCreate(CreateView):
+    model = Paciente
+    template_name = 'form.html'
+    form_class = PacienteForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PacienteCreate, self).form_valid(form)
+
+class IngresoCreate(CreateView):
+    model = Ingreso
+    template_name = 'form.html'
+    form_class = IngresoForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(IngresoCreate, self).form_valid(form)

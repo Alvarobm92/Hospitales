@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
-from iHospitales.views import HospitalList, HospitalDetail, MedicoList, MedicoDetail, HospitalViewSet, MedicoViewSet
+from iHospitales.views import HospitalList, HospitalDetail, MedicoList, MedicoDetail, HospitalViewSet, MedicoViewSet, IngresoCreate, PacienteCreate
 from iHospitales import views
 
 from rest_framework import routers
@@ -53,5 +53,7 @@ urlpatterns = patterns('',
 	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 
+    url(r'^paciente/create/$', PacienteCreate.as_view(), name='paciente_create'),
+    url(r'^ingreso/create/$', IngresoCreate.as_view(), name='ingreso_create'),
 
 )
