@@ -400,6 +400,8 @@ class PacienteCreate(CreateView):
     form_class = PacienteForm
 
     def form_valid(self, form):
+        if self.request.user.is_anonymous():
+            raise Http404('No tienes permisos')
         form.instance.user = self.request.user
         return super(PacienteCreate, self).form_valid(form)
 
@@ -409,6 +411,8 @@ class IngresoCreate(CreateView):
     form_class = IngresoForm
 
     def form_valid(self, form):
+        if self.request.user.is_anonymous():
+            raise Http404('No tienes permisos')
         form.instance.user = self.request.user
         return super(IngresoCreate, self).form_valid(form)
 
