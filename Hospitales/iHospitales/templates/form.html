@@ -3,13 +3,14 @@
 
 {% block content %}
 
-    <script>
+ <script>
         $(function() {
             $.getJSON("{% static "countries.json" %}", {}, function (countries) {
-                $("#id_country").autocomplete({
+                $("#ciudad").autocomplete({
                     source: countries
                 });
             });
+
             $("#id_city").autocomplete({
                 source: function( request, response ) {
                     $.ajax({

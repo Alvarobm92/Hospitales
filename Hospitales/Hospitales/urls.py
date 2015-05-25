@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.views.generic import UpdateView
 from iHospitales.forms import PacienteForm , IngresoForm

@@ -1,184 +1,216 @@
-["Lleida", "Monzon","Abella de la Conca","Agramunt","Aitona","Alam˙s (Els)","Albat‡rrec","Albesa","AlcanÛ","Alcarr‡s","Alguaire", "Alins", "Almacelles""Alpicat"
-
-Arbeca
-
-Baix Pallars
-Balaguer
-
-
-Bellpuig
-
-
-
-Borges Blanques (Les)
-
-
-BÚrdes (Es)
-
-
-Camarasa
-
-
-Castellar de la Ribera
-Castelldans
-Castellnou de Seana
-Castellser‡
-CastellÛ de Farfanya
-Cava
-Cervera
-Cervi‡ de les Garrigues
-Ciutadilla
-Clariana de Cardener
-Cogul (El)
-Coll de NargÛ
-Coma i la Pedra (La)
-Conca de Dalt
-Corbins
-Cubells
-Espot
-Estamariu
-Estar‡s
-Esterri de CardÛs
-Farrera
-Floresta (La)
-Fondarella
-Foradada
-Fuliola (La)
-Fulleda
-FÌgols i Aliny‡
-Gavet de la Conca
-Gimenells i el Pla de la Font
-GolmÈs
-Granadella (La)
-Granyanella
-Granyena de Segarra
-Granyena de les Garrigues
-Guimer‡
-Guissona
-Guixers
-GÛsol
-Isona i Conca Dell‡
-Ivars de Noguera
-Ivorra
-Josa i TuixÈn
-Juncosa
-Juneda
-Les
-Linyola
-Lladorre
-Lladurs
-Llardecans
-LlavorsÌ
-Lleida
-Lles de Cerdanya
-Llimiana
-Llobera
-Maials
-Mald‡
-Massalcoreig
-Massoteres
-Men‡rguens
-Miralcamp
-Mollerussa
-Molsosa (La)
-Montell‡ i Martinet
-Montferrer i CastellbÚ
-Montgai
-Montoliu de Lleida
-Montoliu de Segarra
-MontornËs de Segarra
-Nalec
-Naut Aran
-NavËs
-OdËn
-Oliana
-Oliola
-Olius
-Oluges (Les)
-Omellons (Els)
-Omells de na Gaia (Els)
-Organy‡
-Os de Balaguer
-OssÛ de SiÛ
-Penelles
-Peramola
-Pinell de SolsonËs
-PinÛs
-Plans de SiÛ (Els)
-Poal (El)
-Pobla de CÈrvoles (La)
-Pobla de Segur (La)
-Pont de Bar (El)
-Pont de Suert (El)
-Ponts
-Portella (La)
-Prats i Sansor
-Preixana
-Preixens
-Prullans
-PuiggrÚs
-Puigverd de Lleida
-Rialp
-Riner
-Riu de Cerdanya
-RossellÛ
-Sal‡s de Pallars
-Sana¸ja
-Sant Esteve de la Sarga
-Sant Guim de Freixenet
-Sant Guim de la Plana
-Sant LlorenÁ de Morunys
-Sant MartÌ de Riucorb
-Sant Ramon
-Sarroca de Bellera
-Sarroca de Lleida
-Senterada
-Sentiu de SiÛ (La)
-SerÚs
-Sidamon
-Soler‡s (El)
-Solsona
-Soriguera
-Sort
-Soses
-Sudanell
-Sunyer
-Talarn
-Talavera
-Tarroja de Segarra
-TarrÈs
-Tiurana
-Torms (Els)
-Tornabous
-Torre de Cabdella (La)
-Torre-serona
-Torrebesses
-Torrefarrera
-Torrefeta i Florejacs
-Torregrossa
-Torrelameu
-Torres de Segre
-Tor‡
-Tremp
-T‡rrega
-TÈrmens
-TÌrvia
-Vall de BoÌ (La)
-Vall de CardÛs
-Vallbona de les Monges
-Vallfogona de Balaguer
-Valls de Valira (Les)
-Vansa i FÛrnols (La)
-Verd˙
-Vielha e Mijaran
-Vila-sana
-Vilagrassa
-Vilaller
-VilamÚs
-Vilanova de Bellpuig
-Vilanova de Mei‡
-Vilanova de Segri‡
-Vilanova de la Barca
-Vilosell (El)
-Vinaixa
-¿ger"]
+Ôªø[
+"Abella de la Conca",
+"Agramunt",
+"Aitona",
+"Alam√∫s (Els)",
+"Albat√†rrec",
+"Albesa",
+"Alcan√≥",
+"Alcarr√†s",
+"Alcoletge",
+"Alfarr√†s",
+"Alf√©s",
+"Algerri",
+"Alguaire",
+"Alins",
+"Almacelles",
+"Almatret",
+"Almenar",
+"Alpicat",
+"Alt √Äneu",
+"Al√†s i Cerc",
+"Al√≤s de Balaguer",
+"Anglesola",
+"Arbeca",
+"Arres",
+"Ars√®guel",
+"Artesa de Lleida",
+"Artesa de Segre",
+"Aspa",
+"Avellanes i Santa Linya (Les)",
+"Baix Pallars",
+"Balaguer",
+"Barbens",
+"Baronia de Rialb (La)",
+"Bassella",
+"Bausen",
+"Belianes",
+"Bellaguarda",
+"Bellpuig",
+"Bellver de Cerdanya",
+"Bellv√≠s",
+"Benavent de Segri√†",
+"Biosca",
+"Borges Blanques (Les)",
+"Boss√≤st",
+"Bovera",
+"B√≤rdes (Es)",
+"Cabanabona",
+"Cab√≥",
+"Camarasa",
+"Canejan",
+"Castell de Mur",
+"Castellar de la Ribera",
+"Castelldans",
+"Castellnou de Seana",
+"Castellser√†",
+"Castell√≥ de Farfanya",
+"Cava",
+"Cervera",
+"Cervi√† de les Garrigues",
+"Ciutadilla",
+"Clariana de Cardener",
+"Cogul (El)",
+"Coll de Narg√≥",
+"Coma i la Pedra (La)",
+"Conca de Dalt",
+"Corbins",
+"Cubells",
+"Espot",
+"Estamariu",
+"Estar√†s",
+"Esterri de Card√≥s",
+"Farrera",
+"Floresta (La)",
+"Fondarella",
+"Foradada",
+"Fuliola (La)",
+"Fulleda",
+"F√≠gols i Aliny√†",
+"Gavet de la Conca",
+"Gimenells i el Pla de la Font",
+"Golm√©s",
+"Granadella (La)",
+"Granyanella",
+"Granyena de Segarra",
+"Granyena de les Garrigues",
+"Guimer√†",
+"Guissona",
+"Guixers",
+"G√≥sol",
+"Isona i Conca Dell√†",
+"Ivars de Noguera",
+"Ivorra",
+"Josa i Tuix√©n",
+"Juncosa",
+"Juneda",
+"Les",
+"Linyola",
+"Lladorre",
+"Lladurs",
+"Llardecans",
+"Llavors√≠",
+"Lleida",
+"Lles de Cerdanya",
+"Llimiana",
+"Llobera",
+"Maials",
+"Mald√†",
+"Massalcoreig",
+"Massoteres",
+"Men√†rguens",
+"Miralcamp",
+"Mollerussa",
+"Molsosa (La)",
+"Montell√† i Martinet",
+"Montferrer i Castellb√≤",
+"Montgai",
+"Montoliu de Lleida",
+"Montoliu de Segarra",
+"Montorn√®s de Segarra",
+"Nalec",
+"Naut Aran",
+"Nav√®s",
+"Od√®n",
+"Oliana",
+"Oliola",
+"Olius",
+"Oluges (Les)",
+"Omellons (Els)",
+"Omells de na Gaia (Els)",
+"Organy√†",
+"Os de Balaguer",
+"Oss√≥ de Si√≥",
+"Penelles",
+"Peramola",
+"Pinell de Solson√®s",
+"Pin√≥s",
+"Plans de Si√≥ (Els)",
+"Poal (El)",
+"Pobla de C√©rvoles (La)",
+"Pobla de Segur (La)",
+"Pont de Bar (El)",
+"Pont de Suert (El)",
+"Ponts",
+"Portella (La)",
+"Prats i Sansor",
+"Preixana",
+"Preixens",
+"Prullans",
+"Puiggr√≤s",
+"Puigverd de Lleida",
+"Rialp",
+"Riner",
+"Riu de Cerdanya",
+"Rossell√≥",
+"Sal√†s de Pallars",
+"Sana√ºja",
+"Sant Esteve de la Sarga",
+"Sant Guim de Freixenet",
+"Sant Guim de la Plana",
+"Sant Lloren√ß de Morunys",
+"Sant Mart√≠ de Riucorb",
+"Sant Ramon",
+"Sarroca de Bellera",
+"Sarroca de Lleida",
+"Senterada",
+"Sentiu de Si√≥ (La)",
+"Ser√≤s",
+"Sidamon",
+"Soler√†s (El)",
+"Solsona",
+"Soriguera",
+"Sort",
+"Soses",
+"Sudanell",
+"Sunyer",
+"Talarn",
+"Talavera",
+"Tarroja de Segarra",
+"Tarr√©s",
+"Tiurana",
+"Torms (Els)",
+"Tornabous",
+"Torre de Cabdella (La)",
+"Torre-serona",
+"Torrebesses",
+"Torrefarrera",
+"Torrefeta i Florejacs",
+"Torregrossa",
+"Torrelameu",
+"Torres de Segre",
+"Tor√†",
+"Tremp",
+"T√†rrega",
+"T√©rmens",
+"T√≠rvia",
+"Vall de Bo√≠ (La)",
+"Vall de Card√≥s",
+"Vallbona de les Monges",
+"Vallfogona de Balaguer",
+"Valls de Valira (Les)",
+"Vansa i F√≥rnols (La)",
+"Verd√∫",
+"Vielha e Mijaran",
+"Vila-sana",
+"Vilagrassa",
+"Vilaller",
+"Vilam√≤s",
+"Vilanova de Bellpuig",
+"Vilanova de Mei√†",
+"Vilanova de Segri√†",
+"Vilanova de la Barca",
+"Vilosell (El)",
+"Vinaixa",
+"√Äger"
+]
