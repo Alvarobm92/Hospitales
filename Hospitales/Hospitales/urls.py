@@ -49,7 +49,7 @@ urlpatterns = patterns('',
     url(r'logout', 'iHospitales.views.logout'),
     url(r'^$', 'iHospitales.views.home'),
 
-	url(r'^prueba/', include(router.urls)),
+	url(r'^api/', include(router.urls)),
 	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 
