@@ -22,3 +22,6 @@ class IngresoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Medico
         fields = ('codigo_ingreso', 'hospital', 'medico', 'paciente', 'sintomas')
+
+    
+#
