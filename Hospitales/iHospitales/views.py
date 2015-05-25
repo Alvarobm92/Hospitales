@@ -412,4 +412,3 @@ class IngresoCreate(CreateView):
         form.instance.user = self.request.user
         return super(IngresoCreate, self).form_valid(form)
 
-#
