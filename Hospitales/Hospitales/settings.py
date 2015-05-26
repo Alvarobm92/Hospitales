@@ -37,8 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'iHospitales',
-	'rest_framework',
-	'rest_framework_xml',
+    'rest_framework',
+    'rest_framework_xml',
 
 )
 
@@ -98,11 +98,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = './iHospitales/static/'
-
-STATIC_ROOT = './static'
+STATIC_URL = '/static/'
+STATIC_ROOT = '.'
+#STATIC_ROOT = '.'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
+STATICFILES_DIRS = (
+    ('assets', './iHospitales/static'),
+
+    )

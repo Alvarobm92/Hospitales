@@ -26,6 +26,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'Hospitales.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hospitales/$', 'iHospitales.views.hospitales', name='hospitales'), #Lista Hospitales
     url(r'^hospitales/(?P<pk>\w+)/$', 'iHospitales.views.hospitales_detail' , name='hospital_detail'),#Detalles Hospital

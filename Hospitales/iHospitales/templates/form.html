@@ -5,9 +5,9 @@
 
  <script>
         $(function() {
-            $.getJSON("{% static "countries.json" %}", {}, function (countries) {
-                $("#ciudad").autocomplete({
-                    source: countries
+            $.getJSON("{% static "countries.json" %}", {}, function (cities) {
+                $("#id_ciudad").autocomplete({
+                    source: cities
                 });
             });
 

@@ -15,6 +15,18 @@ from rest_framework.response import Response
 from serializers import HospitalSerializer, MedicoSerializer, PacienteSerializer, IngresoSerializer
 from forms import IngresoForm, PacienteForm
 from django.views.generic.edit import CreateView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+
+
+class LoginRequiredMixin(object):
+    u"""Ensures that user must be authenticated in order to access view."""
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoginRequiredMixin, self).dispatch(*args, **kwargs)
+
 
 
 # Create your views here.
@@ -394,25 +406,24 @@ class IngresoViewSet(viewsets.ModelViewSet):
     queryset = Ingreso.objects.all()
     serializer_class = IngresoSerializer
 
-class PacienteCreate(CreateView):
+class PacienteCreate(LoginRequiredMixin, CreateView):
     model = Paciente
     template_name = 'form.html'
     form_class = PacienteForm
 
     def form_valid(self, form):
-        if self.request.user.is_anonymous():
-            raise Http404('No tienes permisos')
         form.instance.user = self.request.user
         return super(PacienteCreate, self).form_valid(form)
 
-class IngresoCreate(CreateView):
+class IngresoCreate(LoginRequiredMixin, CreateView):
     model = Ingreso
     template_name = 'form.html'
     form_class = IngresoForm
 
     def form_valid(self, form):
-        if self.request.user.is_anonymous():
-            raise Http404('No tienes permisos')
         form.instance.user = self.request.user
         return super(IngresoCreate, self).form_valid(form)
+
+
+
 
