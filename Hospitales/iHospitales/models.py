@@ -27,7 +27,8 @@ class Paciente(models.Model):
     dni = models.CharField(max_length=10, primary_key= True )
     nombre = models.CharField(max_length=40)
     edad = models.IntegerField(max_length=3)
-    ciudad = models.TextField(max_length=40)
+    ciudad = models.CharField(max_length=40)
+    pais =  models.CharField(max_length=40)
     def __unicode__(self):
         return self.nombre
 
