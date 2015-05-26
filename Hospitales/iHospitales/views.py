@@ -14,7 +14,7 @@ from rest_framework.reverse import reverse
 from rest_framework.response import Response
 from serializers import HospitalSerializer, MedicoSerializer, PacienteSerializer, IngresoSerializer
 from forms import IngresoForm, PacienteForm
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -424,6 +424,22 @@ class IngresoCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(IngresoCreate, self).form_valid(form)
 
+class PacienteUpdate(LoginRequiredMixin, UpdateView):
+    model = Paciente
+    template_name = 'form.html'
+    form_class = PacienteForm
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PacienteUpdate, self).form_valid(form)
+
+class IngresoUpdate(LoginRequiredMixin, UpdateView):
+    model = Ingreso
+    template_name = 'form.html'
+    form_class = IngresoForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(IngresoUpdate, self).form_valid(form)
 
 

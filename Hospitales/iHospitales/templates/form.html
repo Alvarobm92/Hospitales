@@ -5,13 +5,13 @@
 
  <script>
         $(function() {
-            $.getJSON("{% static "countries.json" %}", {}, function (cities) {
-                $("#id_ciudad").autocomplete({
-                    source: cities
+            $.getJSON("{% static "countries.json" %}", {}, function (countries) {
+                $("#id_pais").autocomplete({
+                    source: countries
                 });
             });
 
-            $("#id_city").autocomplete({
+            $("#id_ciudad").autocomplete({
                 source: function( request, response ) {
                     $.ajax({
                         url: "http://ws.geonames.org/searchJSON",
@@ -20,7 +20,7 @@
                             featureClass: "P",
                             maxRows: 10,
                             name_startsWith: request.term,
-                            username: "demo"
+                            username: "alvarobm92"
                         },
                         success: function( data ) {
                             response( $.map( data.geonames, function( item ) {
