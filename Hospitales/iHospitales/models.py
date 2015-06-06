@@ -8,6 +8,9 @@ class Hospital(models.Model):
     nombre = models.CharField(max_length=40)
     ciudad = models.TextField(max_length=40)
     codigo_postal = models.CharField(max_length=40)
+    pais = models.CharField(max_length=40)
+    Dep_destacados = models.CharField(max_length=40)
+    telefono = models.IntegerField()
     capacidad = models.IntegerField()
     def __unicode__(self):
         return self.nombre

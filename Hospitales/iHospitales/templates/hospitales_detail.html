@@ -1,8 +1,38 @@
-{%extends "base.html" %}
-{% block content %}
+{% load staticfiles %}
+<html>
+  <head>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+      <title>{{ titlehead}}</title>
+  </head>
+<body>
+<table style="width:100%">
+  <h1>{{ pagetitle }}</h1>
+      <tr bgcolor="#bbbbbb">
+        <td>
+  {% if user.username %}
 
+<p>Welcome {{ user.username }}! <a href="/logout/">logout</a></p>
+
+{% else %}
+<p>Welcome anonymous:<a href="/login/">sign in</a>. </p>
+{% endif %}
+   </td>
+    </tr>
+<hr>
+      <tr>
+        <td bgcolor="#E0E0E0">
+            <h1><a href="/hospitales"> Aplicacion de Hospitales</a></h1>
+
+        </td>
+      </tr>
+</table>
+
+<span vocab="http://schema.org/" typeof="Hospital">
 
   {% if hospital %}
+
       <tr>
           <th colspan="2"><h1>Detalles del Hospital {{ hospital.nombre }}</h1></th>
       </tr>
@@ -10,105 +40,106 @@
 
 
 
-      <tr >
-          <td width="25%">Codigo</td>
-          <td width="25%">{{hospital.codigo_hospital}} </td>
-       </tr>
+      <div >
+         Codigo: {{hospital.codigo_hospital}}
+       </div>
 
-      <tr>
-          <td>Nombre</td>
-           <td>{{hospital.nombre}}</td>
-      </tr>
+      <div>
+         Nombre: <span property="name">{{hospital.nombre}}</span>
+      </div>
 
-       <tr>
-           <td>Ciudad</td>
-           <td>{{ hospital.ciudad}}</td>
-       </tr>
+     	<span property="address" typeof="PostalAddress">
+      <div>
+           Ciudad: <span property="addressLocality">{{hospital.ciudad}}</span>
+      </div>
+      <div>
+          Pais: <span property="addressCountry">{{hospital.pais}}</span>
+      </div>
+      <div>
+           Codigo Postal: <span property="Postalcode">{{hospital.codigo_postal}}</span>
+      </div>
+      </span>
 
-       <tr>
-           <td>Codigo Postal</td>
-           <td>{{ hospital.codigo_postal }}</td>
-        </tr>
+      <div>
+           Especialidades: <span property="medicalSpecialty">{{hospital.Dep_destacados}}</span>
+      </div>
+      <div>
+           Telefono: <span property="telephone">{{hospital.telefono}}</span>
+      </div>
+      <div>
+            Capacidad: {{ hospital.capacidad}}
+      </div>
 
-        <tr>
-            <td>Capacidad</td>
-            <td>{{ hospital.capacidad}}</td>
-
-      </tr>
+</span>
+<table width="100%">
+<tr><td width="33%">
 
 
+    <table width="100%" bgcolor="#e0e0e0">
 
-<tr>
-<td>
-    <table width="50%" bgcolor="#e0e0e0">
-
-    <tr><td><h3><A HREF="./medicos/">Lista de MEDICOS</A></h3></td></tr>
+    <tr><td ALIGN=CENTER><h3><A HREF="./medicos/">Lista de MEDICOS</A></h3></td></tr>
 
 
 
 {% if medicos %}
   {% for medico in medicos %}
         <tr>
-        <td>
+        <td ALIGN=CENTER>
      <A HREF="/medicos/{{medico.codigo_medico}}">{{medico.nombre}}</A> {{medico.departamento}}
         </td>
         </tr>
    {% endfor %}
 {% else %}
             <tr>
-        <td>
+        <td ALIGN=CENTER>
   <p>No hay medicos trabajando en este hospital.</p>
             </td>
         </tr>
 {% endif %}
-    </td>
-</tr>
+
 
 </table>
+</td><td width="33%">
 
-      <tr>
-        <td colspan="3">
-      <table width="25%" bgcolor="#e0e0e0" align="right">
-      <tr><td>
+      <table width="100%" bgcolor="#e0e0e0" >
+      <tr><td ALIGN=CENTER>
           <h3><A HREF="./pacientes/">Pacientes</A></h3>
         </td></tr>
 {% if pacientes %}
   {% for paciente in pacientes %}
-      <tr><td>
+      <tr><td ALIGN=CENTER>
       <A HREF="/pacientes/{{paciente.dni}}">{{paciente.nombre}}</A>
       </td></tr>
    {% endfor %}
 {% else %}
-    <tr><td>
+    <tr><td ALIGN=CENTER>
   <p>No hay ultimos pacientes.</p>
     </td></tr>
 {% endif %}
 
       </table>
-      </td>
+</td>
+<td width="33%">
 
-</tr>
-      <tr><td colspan="3">
-
-            <table width="25%" bgcolor="#e0e0e0" align="right">
-<tr><td>
+            <table width="100%" bgcolor="#e0e0e0" >
+        <tr><td ALIGN=CENTER>
 
             <h3><A HREF="./ingresos/">Ingresos</A></h3>
 </td></tr>
 {% if ingresos %}
   {% for ingreso in ingresos %}
-      <tr><td>
+      <tr><td ALIGN=CENTER>
       <A HREF="/ingresos/{{ingreso.codigo_ingreso}}">{{ingreso.codigo_ingreso}}</A>
       </td></tr>
    {% endfor %}
 {% else %}
-    <tr><td>
+    <tr><td ALIGN=CENTER>
   <p>No hay ultimos ingresos.</p>
     </td></tr>
 {% endif %}
 </table>
-      </td>
-</tr>
+</td></tr>
+</table>
   {% else %}
 
       <tr>
@@ -116,6 +147,5 @@
       </tr>
   {% endif %}
 
-
-
-{% endblock %}
+</body>
+</html>
