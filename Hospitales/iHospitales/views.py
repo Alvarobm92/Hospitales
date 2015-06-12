@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import Hospital, Medico, Paciente, Ingreso
+from models import Hospital, Medico, Paciente, Ingreso, Review
 
 
 from django.http import HttpResponse, Http404, HttpResponseRedirect
@@ -13,7 +13,7 @@ from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
 from serializers import HospitalSerializer, MedicoSerializer, PacienteSerializer, IngresoSerializer
-from forms import IngresoForm, PacienteForm
+from forms import IngresoForm, PacienteForm, ReviewForm
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -60,12 +60,13 @@ def hospitales_detail(request, pk):
 
     except:
         raise Http404('Lista de ingresos not found.')
-    #try:
 
-       #pacientes = Paciente.objects.filter(id = Ingreso.paciente).exclude(id = [x.paciente for x in ingresos])
-       #Gallery.objects.filter(type = 2).filter(root_gallery__isnull = True).exclude(id__in = [x.id for x in request.user.usergallery_set()])
-    #except:
-        #raise Http404('Lista de pacientes not found.')
+    try:
+       reviews = Review.objects.filter(hospital = pk)
+
+    except:
+        raise Http404('Lista de reviews not found.')
+
 
     lista_pacientes = []
     for paciente in ingresos:
@@ -83,7 +84,8 @@ def hospitales_detail(request, pk):
         'hospital':hospital,
         'medicos': medicos,
         'pacientes': lista_pacientes,
-        'ingresos': ingresos
+        'ingresos': ingresos,
+        'reviews': reviews
     })
     output = template.render(variables)
     return HttpResponse(output)
@@ -442,4 +444,11 @@ class IngresoUpdate(LoginRequiredMixin, UpdateView):
         form.instance.user = self.request.user
         return super(IngresoUpdate, self).form_valid(form)
 
+class ReviewCreate(LoginRequiredMixin, CreateView):
+    model = Review
+    template_name = 'form.html'
+    form_class = ReviewForm
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ReviewCreate, self).form_valid(form)

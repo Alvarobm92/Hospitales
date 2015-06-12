@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from models import Paciente, Ingreso
+from models import Paciente, Ingreso, Review
 
 class PacienteForm(ModelForm):
     class Meta:
@@ -9,4 +9,9 @@ class PacienteForm(ModelForm):
 class IngresoForm(ModelForm):
     class Meta:
         model = Ingreso
+        exclude = ('user',)
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Review
         exclude = ('user',)

@@ -70,7 +70,7 @@
             Capacidad: {{ hospital.capacidad}}
       </div>
 
-</span>
+
 <table width="100%">
 <tr><td width="33%">
 
@@ -140,6 +140,44 @@
 </table>
 </td></tr>
 </table>
+
+{% if reviews %}
+<span rel="aggregateRating">
+    <p typeof="AggregateRating">
+        Rating medio <span property="ratingValue">{{ reviws.averageRating|stringformat:".1f"}}</span>
+        {% with reviews|length as reviewCount %}
+        de <span property="reviewCount">{{ reviewCount }}</span> review{{ reviewCount|pluralize }}
+        {% endwith %}
+    </p>
+</span>
+<ul rel="review">
+    {% for review in reviews %}
+        <li typeof="Review">
+            <p rel="reviewRating" typeof="Rating">
+                <span property="worstRating" content="{{ RATING_CHOICES.0.0 }}"></span>
+                <span property="ratingValue">{{ review.rating }}</span> star{{ review.rating|pluralize }}
+                {% with RATING_CHOICES|last as best %}
+                <span property="bestRating" content="{{ best.0 }}"></span>
+                {% endwith %}
+            </p>
+            <p property="description">{{ review.comment }}</p>
+            <p>Creada por <span property="author">{{ review.user }}</span> en
+                <span property="datePublished">{{ review.date}}</span></p>
+        </li>
+    {% endfor %}
+</ul>
+</span>
+{% endif %}
+
+</span>
+
+
+
+
+
+
+<a href="/review/create">Nueva evaluacion</A>
+
   {% else %}
 
       <tr>

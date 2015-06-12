@@ -1,6 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-
+from datetime import date
 # Create your models here.
 
 class Hospital(models.Model):
@@ -18,7 +19,7 @@ class Hospital(models.Model):
 class Medico(models.Model):
     codigo_medico = models.CharField(max_length=10, primary_key= True )
     nombre = models.CharField(max_length=40)
-    edad = models.IntegerField(max_length=3)
+    edad = models.IntegerField()
     ciudad = models.CharField(max_length=40)
     especialidad = models.CharField(max_length=40)
     departamento = models.CharField(max_length=40)
@@ -29,7 +30,7 @@ class Medico(models.Model):
 class Paciente(models.Model):
     dni = models.CharField(max_length=10, primary_key= True )
     nombre = models.CharField(max_length=40)
-    edad = models.IntegerField(max_length=3)
+    edad = models.IntegerField()
     ciudad = models.CharField(max_length=40)
     pais =  models.CharField(max_length=40)
     def __unicode__(self):
@@ -51,3 +52,19 @@ class Ingreso (models.Model):
 
     def get_absolute_url(self):
         return reverse('ingresos_detail', kwargs={'pk': self.pk})
+
+
+class Review (models.Model):
+    codigo_review =  models.CharField(max_length=5, primary_key= True )
+    RATING_CHOICES = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'))
+    rating = models.PositiveSmallIntegerField('Ratings (stars)', blank=False, default=3, choices=RATING_CHOICES)
+    comment = models.TextField(blank=True, null=True)
+    hospital = models.ForeignKey(Hospital)
+    user = models.ForeignKey(User, default=1)
+    date = models.DateField(default=date.today)
+
+    def __unicode__(self):
+        return self.codigo_review
+
+    def get_absolute_url(self):
+        return reverse('hospitales', kwargs={})

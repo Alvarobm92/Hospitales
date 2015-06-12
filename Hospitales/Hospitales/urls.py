@@ -4,7 +4,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from django.views.generic import UpdateView
 from iHospitales.forms import PacienteForm , IngresoForm
 from iHospitales.models import Paciente, Ingreso
-from iHospitales.views import HospitalList, HospitalDetail, MedicoList, MedicoDetail, HospitalViewSet, MedicoViewSet, IngresoCreate, PacienteCreate, IngresoUpdate, PacienteUpdate
+from iHospitales.views import HospitalList, HospitalDetail, MedicoList, MedicoDetail, HospitalViewSet, MedicoViewSet, IngresoCreate, PacienteCreate, IngresoUpdate, PacienteUpdate, ReviewCreate
 from iHospitales import views
 
 from rest_framework import routers
@@ -62,10 +62,8 @@ urlpatterns = patterns('',
 
     url(r'^paciente/create/$', PacienteCreate.as_view(), name='paciente_create'),
     url(r'^ingreso/create/$', IngresoCreate.as_view(), name='ingreso_create'),
+    url(r'^review/create/$', ReviewCreate.as_view(), name='review_create'),
 
-
-
-url(r'^pacientes/(?P<pk>\w+)/edit/$',PacienteUpdate.as_view(), name='paciente_edit'),
-
-url(r'^ingresos/(?P<pk>\w+)/edit/$',IngresoUpdate.as_view(), name='ingreso_edit'),
+    url(r'^pacientes/(?P<pk>\w+)/edit/$',PacienteUpdate.as_view(), name='paciente_edit'),
+    url(r'^ingresos/(?P<pk>\w+)/edit/$',IngresoUpdate.as_view(), name='ingreso_edit'),
 )
